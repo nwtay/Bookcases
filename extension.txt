@@ -1,0 +1,13 @@
+This extension enhances the brute-force algorithm used in bookcase.c
+via the removal of duplicate bookcases.
+
+As we initialise a new child, we check whether the arrangement of books
+in this child has been seen before (function: visitedbefore) in the array
+of structures.
+
+If it has, we take one off of the cell counter, and hence overwrite this
+child on the next iteration.
+
+The benefit of this is that we use less cells of the array, since all
+cells are new arrangements. Therefore, for the same amount of memory allocation,
+we should be able to run more iterations, before "no solution".
